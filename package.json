@@ -1,6 +1,13 @@
 {
+  "name": "spaxh",
+  "version": "1.0.0",
+  "description": "GitHub Action para atualizar o README automaticamente com informações sobre linguagens e ferramentas.",
+  "main": "updateReadme.mjs",
   "type": "module",
+  "scripts": {
+    "start": "node updateReadme.mjs"
+  },
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.2.0"
   }
 }
