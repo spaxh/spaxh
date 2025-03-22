@@ -2,7 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Executa todo dia à meia-noite
+    - cron: "0 0 * * *" # Roda todo dia à meia-noite
   workflow_dispatch: # Permite rodar manualmente
 
 jobs:
@@ -16,18 +16,23 @@ jobs:
       - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16
 
       - name: Instalar dependências
         run: npm install
 
       - name: Executar script
-        run: npm start
+        run: node updateReadme.mjs
 
-      - name: Commit e push das mudanças
+      - name: Configurar Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit e push das mudanças
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
           git add README.md
           git commit -m "Atualizando README automaticamente"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/spaxh/spaxh.git HEAD:main
