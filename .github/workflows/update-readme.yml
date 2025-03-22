@@ -18,15 +18,20 @@ jobs:
           node-version: 16
 
       - name: Instalar dependências
-        run: npm install node-fetch
+        run: npm install
 
       - name: Executar script
-        run: node updateReadme.js
+        run: node updateReadme.mjs
 
-      - name: Commit e push das mudanças
+      - name: Configurar Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit e push das mudanças
+        env:
+          GH_TOKEN: ${{ secrets.update-readme }}
+        run: |
           git add README.md
           git commit -m "Atualizando README automaticamente"
-          git push
+          git push https://x-access-token:${{ secrets.update-readme }}@github.com/spaxh/spaxh.git HEAD:main
