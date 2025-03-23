@@ -10,13 +10,7 @@ class Bio extends Profile {
 
 class Skills extends Profile {
   languages        = [
-  "Pawn",
-  "POV-Ray SDL",
-  "NASL",
-  "SourcePawn",
-  "C++",
-  "JavaScript",
-  "Batchfile"
+  "JavaScript"
 ];
   frontend         = [];
   backend          = [];
@@ -31,5 +25,4 @@ class Skills extends Profile {
 ```
 
 ## 📌 Meus repositórios mais recentes:
-- [NexyFuy-SAMP](https://github.com/spaxh/NexyFuy-SAMP)
 - [spaxh](https://github.com/spaxh/spaxh)
