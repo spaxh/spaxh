@@ -25,5 +25,4 @@ class Skills extends Profile {
 ```
 
 ## 📌 Meus repositórios mais recentes:
-- [RothsChild-Bot](https://github.com/spaxh/RothsChild-Bot)
 - [spaxh](https://github.com/spaxh/spaxh)
